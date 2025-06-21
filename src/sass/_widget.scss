@@ -1,0 +1,25 @@
+.widget {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: $base-padding;
+    box-shadow:
+        2px 2px 4px lightgray,
+        -1px -1px 3px lightgray;
+    height: 160px;
+    margin-top: $base-margin - 0.7;
+    width: 100%;
+
+    .widget_title {
+        color: $secondary-color;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .widget_number {
+        color: $primary-color;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}

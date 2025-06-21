@@ -1,0 +1,8 @@
+// widget background color mix
+@each $key, $val in $colors {
+    .widget_icon_bg_#{$key} {
+        background-color: mix($bg-color, $val, 85%);
+        border-radius: 50%;
+        padding: 7px;
+    }
+}

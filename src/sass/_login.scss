@@ -1,0 +1,231 @@
+.login {
+    padding: $base-padding * 6;
+    height: 100vh;
+    width: 100%;
+
+    header {
+        @extend %flex-layout;
+        margin-bottom: $base-margin * 4;
+    }
+
+    .error_message {
+        @include slideIn;
+        @include slideOut;
+        position: fixed;
+        top: $base-margin * 3;
+        text-transform: capitalize;
+        background-color: mix($bg-color, $error, 20%);
+        color: $bg-color;
+        padding: $base-padding - 0.375 $base-padding + 0.25;
+        border-radius: 5px;
+        animation:
+            slideIn 0.5s forwards,
+            slideOut 0.5s forwards 4.5s;
+    }
+
+    .login_form {
+        @extend %flex-layout;
+        justify-content: center;
+        align-items: flex-start;
+        padding: $base-padding;
+
+        .pablo_sketch,
+        .form_container {
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 200px;
+        }
+
+        .pablo_sketch {
+            margin-top: $base-margin * 5;
+        }
+
+        .form_container,
+        form {
+            @extend %flex-layout;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .form_container {
+            height: 100%;
+            margin-left: $base-margin * 6;
+            gap: 30px;
+
+            h2 {
+                font-weight: 700;
+                text-transform: capitalize;
+                color: $primary-color;
+                width: 100%;
+                font-size: 40px;
+            }
+
+            .form_container_paragraph {
+                font-size: 20px;
+                color: $secondary-color;
+                margin-bottom: $base-margin * 2;
+            }
+
+            form {
+                gap: 30px;
+
+                .email_input,
+                .input_wrapper,
+                .password_input,
+                .submit_btn {
+                    width: 80%;
+                    height: 50px;
+                    outline: none;
+                    border: 1px solid $secondary-color;
+                    border-radius: 10px;
+                    padding: $base-padding;
+                }
+
+                .email_input,
+                .input_wrapper {
+                    &:focus-within {
+                        border: 2px solid $secondary-color;
+                    }
+                }
+
+                .input_wrapper {
+                    position: relative;
+                    cursor: text;
+
+                    .password_input {
+                        border: none;
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        height: 45px;
+                        width: 90%;
+                    }
+
+                    .show_btn {
+                        position: absolute;
+                        right: 0;
+                        top: 1rem;
+                        margin-right: $base-margin;
+                        cursor: pointer;
+                        color: $btn-color;
+                        font-weight: 600;
+                    }
+                }
+
+                a {
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    color: $btn-color;
+                    cursor: pointer;
+                }
+
+                .submit_btn {
+                    background-color: $btn-color;
+                    color: $bg-color;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    font-size: 14px;
+                    cursor: pointer;
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+@include xl {
+    .login {
+        padding: $base-padding * 4;
+
+        header {
+            margin-bottom: $base-margin * 3;
+        }
+
+        .login_form {
+            padding: 0;
+
+            .form_container {
+                margin-left: $base-margin;
+            }
+        }
+    }
+}
+
+@include lg {
+    .login {
+        .login_form {
+            flex-wrap: wrap;
+
+            .pablo_sketch {
+                width: 450px;
+            }
+
+            .form_container {
+                margin-left: $base-margin * 4;
+            }
+        }
+    }
+}
+
+@include breakpoint(884px) {
+    .login {
+        header {
+            margin-bottom: 0;
+        }
+
+        .login_form {
+            flex-direction: column;
+            gap: 20px;
+            padding: 0 0 $base-padding * 2 0;
+            margin-top: -$base-margin * 3;
+
+            .pablo_sketch {
+                width: 400px;
+                align-self: center;
+            }
+
+            .form_container {
+                margin-left: 0;
+                gap: 20px;
+
+                .form_container_paragraph {
+                    margin-bottom: $base-margin;
+                }
+
+                form {
+                    .email_input,
+                    .input_wrapper,
+                    .password_input,
+                    .submit_btn {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include sm {
+    .login {
+        padding: $base-padding * 2;
+
+        .login_form {
+            .pablo_sketch {
+                width: 350px;
+                align-self: flex-start;
+            }
+        }
+    }
+}
+
+@include breakpoint(375px) {
+    .login {
+        .login_form {
+            .pablo_sketch {
+                width: 300px;
+            }
+        }
+    }
+}

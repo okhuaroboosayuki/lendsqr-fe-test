@@ -1,0 +1,264 @@
+.user_profile {
+    width: 100%;
+    height: 100%;
+    scroll-behavior: smooth;
+    position: relative;
+    font-family: "Work Sans", sans-serif;
+    text-transform: capitalize;
+
+    .user_profile_content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+
+        .go_back_btn {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            cursor: pointer;
+
+            span {
+                color: $secondary-color;
+            }
+        }
+
+        .user_profile_content_title_wrapper {
+            align-self: flex-start;
+            @extend %flex-layout;
+            justify-content: space-between;
+            margin-top: $base-margin * 1.625;
+
+            .user_profile_content-title {
+                font-size: 24px;
+                font-weight: 500;
+                color: $primary-color;
+            }
+
+            .btn_wrapper {
+                display: flex;
+                gap: 20px;
+
+                button {
+                    border: none;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    padding: 12px $base-padding;
+                    border-radius: 10px;
+
+                    &.blacklist_user {
+                        border: 1px solid $blacklisted-color;
+                        background-color: mix($bg-color, $blacklisted-color, 96%);
+                        color: $blacklisted-color;
+                    }
+
+                    &.activate_user {
+                        border: 1px solid $btn-color;
+                        background-color: mix($bg-color, $btn-color, 96%);
+                        color: $btn-color;
+                    }
+                }
+            }
+        }
+
+        .user_profile_details {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+            margin-top: $base-margin * 3;
+
+            .top_details {
+                display: flex;
+                flex-direction: column;
+                gap: 51px;
+                width: 100%;
+                box-shadow:
+                    2px 2px 4px lightgray,
+                    -1px -1px 3px lightgray;
+                padding: 30px 30px 0 30px;
+
+                .profile_details {
+                    display: flex;
+                    align-items: center;
+                    gap: 30px;
+
+                    .user_id_wrapper {
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+
+                        img {
+                            border-radius: 50%;
+                            height: 100px;
+                            width: 100px;
+                        }
+
+                        .user_id {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            gap: 8px;
+
+                            .user_name {
+                                font-size: 22px;
+                                font-weight: 500;
+                                color: $primary-color;
+                            }
+
+                            .user_id_number {
+                                color: $secondary-color;
+                            }
+                        }
+                    }
+
+                    .user_rating {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 30px;
+                        border-right: 1px solid mix($bg-color, $secondary-color, 80%);
+                        border-left: 1px solid mix($bg-color, $secondary-color, 80%);
+
+                        .tier {
+                            color: $secondary-color;
+                        }
+                    }
+
+                    .user_account_details {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                        color: $primary-color;
+
+                        .amount {
+                            font-size: 22px;
+                            font-weight: 500;
+                        }
+
+                        .bank_details {
+                            font-size: 12px;
+                        }
+                    }
+                }
+
+                .profile_details_nav {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                    width: 100%;
+
+                    a {
+                        padding: $base-padding - 0.5;
+                        font-family: "SF Compact Text";
+                        color: mix($bg-color, #000, 30%);
+
+                        &:hover {
+                            border-bottom: 2px solid $btn-color;
+                            color: $btn-color;
+                        }
+                    }
+                }
+            }
+
+            .bottom_details {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                box-shadow:
+                    2px 2px 4px lightgray,
+                    -1px -1px 3px lightgray;
+                padding: 0 30px;
+
+                .information {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 30px;
+                    padding-bottom: 28px;
+                    padding-top: 30px;
+                    border-bottom: 1px solid mix($bg-color, $primary-color, 85%);
+
+                    .heading {
+                        color: $primary-color;
+                        font-weight: 500;
+                    }
+
+                    .info_wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        align-content: flex-start;
+                        width: 100%;
+                        gap: 30px;
+
+                        .top_info,
+                        .bottom_info {
+                            display: flex;
+                            align-items: flex-start;
+                            flex-wrap: wrap;
+                            // gap: 30px;
+
+                            .info {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 8px;
+                                color: $secondary-color;
+
+                                &.full_name {
+                                    width: 170px;
+                                }
+
+                                &.phone_number,
+                                &.children {
+                                    width: 150px;
+                                }
+
+                                &.email_address,
+                                &.education,
+                                &.employment_status,
+                                &.sector,
+                                &.office_email,
+                                &.monthly_income {
+                                    width: 250px;
+                                }
+
+                                &.bvn {
+                                    width: 200px;
+                                }
+
+                                &.marital_status {
+                                    width: 170px;
+                                }
+
+                                &.sector {
+                                    width: 240px;
+                                }
+
+                                &.twitter {
+                                    width: 100px;
+                                }
+
+                                &.fb {
+                                    width: 170px;
+                                }
+
+                                h5 {
+                                    text-transform: uppercase;
+                                    font-weight: 400;
+                                }
+
+                                p {
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
