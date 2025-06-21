@@ -1,0 +1,22 @@
+// variables
+@import "sass/variables";
+
+// colors
+@import "sass/colors";
+
+// base & layout
+@import "sass/breakpoint";
+@import "sass/base";
+
+// components
+@import "sass/loaders";
+@import "sass/header";
+@import "sass/sidenav";
+@import "sass/widget";
+@import "sass/table";
+@import "sass/pagination";
+
+// pages
+@import "sass/login";
+@import "sass/dashboard";
+@import "sass/user-details";
