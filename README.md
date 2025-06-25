@@ -1,54 +1,62 @@
-# React + TypeScript + Vite
+# LendSqr Frontend Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MLendSqr is a responsive loan management dashboard built with modern frontend technologies, simulating a lender’s admin panel that handles user profiles, loan data, and transactional details. It demonstrates a clean UI, smooth interactions, and real-world patterns to support core lending workflows.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Overview](#overview)
+2. [Key Features](#key-features)
+3. [Tech Stack](#tech-stack)
+4. [Architecture & Structure](#architecture-structure)
 
-## Expanding the ESLint configuration
+### Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project was developed as part of the LendSqr Frontend Engineering Assessment. It was inspired by publicly shared LendSqr FE projects and includes:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Login authentication,
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- Dashboard with paginated user lists,
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Drill-down user details with loan and savings info,
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Key Features
+
+- Authentication: Supabase auth for session-based login & logout flows.
+
+- Dashboard Widgets: Live counts of users, active users, loans, and savings.
+
+- Paginated User Table: Mantine’s usePagination, ellipsis-based pagination, and responsive table with filters.
+
+- User Profiles: Detailed pages with personal info, employment, guarantor data, and quick actions.
+
+- Form Handling: Reactive with React Hook Form, validation via Zod, and helper UI resolvers.
+
+- Type safety: Full TypeScript coverage for props, component interfaces, utility types.
+
+### Tech Stack
+
+- React & TypeScript
+
+- Sass (SCSS)
+
+- React Hook Form + Zod
+
+- Mantine Hooks (usePagination)
+
+- Supabase Auth for login/logout flows
+
+- Local Storage to seed/mock data
+
+### Architecture & Structure
+
+- components/ – Reusable UI elements (Table, Pagination, Widget)
+
+- pages/ – Route-based screens (Login, Dashboard, UserDetails)
+
+- hooks/ – Custom hooks
+
+- utilities/ – Helpers (formatting)
+
+- types/ – Central type definitions for domain objects
+
+- sass/ – Sass styles files for different sections
