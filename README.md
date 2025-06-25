@@ -1,6 +1,6 @@
 # LendSqr Frontend Assessment
 
-MLendSqr is a responsive loan management dashboard built with modern frontend technologies, simulating a lender’s admin panel that handles user profiles, loan data, and transactional details. It demonstrates a clean UI, smooth interactions, and real-world patterns to support core lending workflows.
+LendSqr is a responsive loan management dashboard built with modern frontend technologies, simulating a lender’s admin panel that handles user profiles, loan data, and transactional details. It demonstrates a clean UI, smooth interactions, and real-world patterns to support core lending workflows.
 
 ## Table of Contents
 
