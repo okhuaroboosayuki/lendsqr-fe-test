@@ -7,7 +7,6 @@
         2px 2px 4px lightgray,
         -1px -1px 3px lightgray;
     height: 160px;
-    margin-top: $base-margin - 0.7;
     width: 100%;
 
     .widget_title {
@@ -23,3 +22,10 @@
         font-weight: 600;
     }
 }
+
+// @include md{
+//     .widget {
+//         height: 120px;
+//         width: 100%;
+//     }
+// }

@@ -6,7 +6,8 @@
         url("../assets/fonts/AvenirNext-Regular.woff2") format("woff2"),
         url("../assets/fonts/AvenirNext-Regular.woff") format("woff"),
         url("../assets/fonts/AvenirNext-Regular.ttf") format("truetype"),
-        url("../assets/fonts/AvenirNext-Regular.eot") format("embedded-opentype");
+        url("../assets/fonts/AvenirNext-Regular.eot")
+            format("embedded-opentype");
     font-weight: normal;
     font-style: normal;
 }
@@ -25,8 +26,10 @@
 @font-face {
     font-family: "SF Compact Text";
     src:
-        url("../assets/fonts/sf-compact-text/sf-compact-text-heavy-58646f645b774.otf") format("opentype"),
-        url("../assets/fonts/sf-compact-text/sf-compact-text-italic-58646f7cbab10.otf") format("opentype");
+        url("../assets/fonts/sf-compact-text/sf-compact-text-heavy-58646f645b774.otf")
+            format("opentype"),
+        url("../assets/fonts/sf-compact-text/sf-compact-text-italic-58646f7cbab10.otf")
+            format("opentype");
     font-weight: normal;
     font-style: normal;
 }
@@ -81,10 +84,9 @@ input {
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    height: 100vh;
     font-family: "Avenir Next", sans-serif;
 
-    h2 {
+    h1 {
         color: mix($error, $primary-color, 60%);
     }
 
@@ -114,28 +116,6 @@ input {
 }
 
 // mixins for animation
-@mixin slideIn {
-    @keyframes slideIn {
-        0% {
-            right: -300px;
-        }
-        100% {
-            right: 20px;
-        }
-    }
-}
-
-@mixin slideOut {
-    @keyframes slideOut {
-        0% {
-            right: 20px;
-        }
-        100% {
-            right: -300px;
-        }
-    }
-}
-
 @mixin btn-spin {
     @keyframes btn-spin {
         0% {

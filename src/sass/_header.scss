@@ -1,6 +1,5 @@
 .dashboard_header,
 .header_left,
-.header_right,
 .search_wrapper {
     @extend %flex-layout;
 }
@@ -12,6 +11,8 @@
     position: fixed;
     top: 0;
     z-index: 500;
+    box-shadow: 3px 0px 20px 0px rgba(0, 0, 0, 0.04);
+    justify-content: space-between;
 
     .header_left {
         gap: 15rem;
@@ -63,7 +64,8 @@
     }
 
     .header_right {
-        justify-content: flex-end;
+        display: flex;
+        align-items: center;
         gap: 50px;
 
         a {
@@ -116,7 +118,6 @@
             gap: 5rem;
 
             .search_wrapper {
-                width: 450px;
                 margin-left: $base-margin * 3;
             }
         }
@@ -139,42 +140,40 @@
     }
 }
 
-@include breakpoint(1066px) {
-    .dashboard_header {
-        .header_left {
-            .search_wrapper {
-                margin-left: $base-margin;
-            }
-        }
-    }
-}
+// @include breakpoint(1066px) {
+//     .dashboard_header {
+//         .header_left {
+//             .search_wrapper {
+//                 margin-left: $base-margin;
+//             }
+//         }
+//     }
+// }
 
-@include lg {
-    .dashboard_header {
-        .header_left {
-            .search_wrapper {
-                width: 250px;
-                margin-left: 0;
-                margin-right: $base-margin * 2;
-            }
-        }
+// @include lg {
+//     .dashboard_header {
+//         .header_left {
+//             .search_wrapper {
+//                 width: 250px;
+//                 margin-left: 0;
+//                 margin-right: $base-margin * 2;
+//             }
+//         }
 
-        .header_right {
-            gap: 20px;
+//         .header_right {
+//             gap: 20px;
 
-            .avatar_wrapper {
-                padding-right: $base-padding;
-            }
-        }
-    }
-}
+//             .avatar_wrapper {
+//                 padding-right: $base-padding;
+//             }
+//         }
+//     }
+// }
 
 @include md {
     .dashboard_header {
-        position: relative;
-
         .header_left {
-            gap: 1rem;
+            // gap: 1rem;
 
             a {
                 max-width: 200px;
@@ -183,14 +182,14 @@
                     width: 100%;
                 }
             }
-            .search_wrapper {
-                margin-right: 0;
-                width: 400px;
-            }
+            // .search_wrapper {
+            //     margin-right: 0;
+            //     width: 400px;
+            // }
         }
 
         .header_right {
-            gap: 0;
+            // gap: 0;
 
             .nav_link,
             .notification_icon {
@@ -215,7 +214,10 @@
             width: 150px;
             height: 150px;
             z-index: 100;
-            background-color: rgba(mix($bg-color, $secondary-color, 95%), $alpha: 1);
+            background-color: rgba(
+                mix($bg-color, $secondary-color, 95%),
+                $alpha: 1
+            );
             color: $primary-color;
         }
     }

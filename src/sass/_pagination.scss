@@ -14,7 +14,7 @@
             color: $secondary-color;
         }
 
-        select {
+        .data_count {
             font-size: 14px;
             font-weight: 500;
             padding: 7px;
@@ -53,6 +53,27 @@
 
         .btn_num {
             color: mix($bg-color, $primary-color, 45%);
+        }
+    }
+}
+
+@include md {
+    .pagination {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+
+        .pagination_info {
+            margin-bottom: 10px;
+        }
+
+        .pagination_controls {
+            flex-wrap: wrap;
+            justify-content: flex-start;
+
+            button {
+                margin: 5px;
+            }
         }
     }
 }

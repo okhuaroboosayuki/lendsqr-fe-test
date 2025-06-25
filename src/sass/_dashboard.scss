@@ -13,10 +13,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: $base-margin * 8;
-            margin-left: $base-margin * 23;
-            padding-bottom: $base-padding * 2;
-            width: 70%;
+            margin: $base-margin * 8 $base-margin * 3;
+            width: 100%;
 
             .dashbord_main-title {
                 align-self: flex-start;
@@ -30,7 +28,8 @@
                 width: 100%;
 
                 .widget_wrapper {
-                    display: flex;
+                    display: grid;
+                    grid-template-columns: repeat(4, minmax(0, 1fr));
                     width: 100%;
                     gap: 26px;
                     margin-top: $base-margin * 3;
@@ -44,13 +43,36 @@
     }
 }
 
-@include xl {
+@include xxl {
     .dashboard {
         .container {
             .container_content {
                 margin-left: 0;
                 width: 100%;
                 padding: $base-padding;
+
+                main {
+                    .widget_wrapper {
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include xl {
+    .dashboard {
+        .container {
+            .container_content {
+                margin: $base-margin * 8 $base-margin;
+
+                main {
+                    .widget_wrapper {
+                        margin-top: $base-margin;
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                    }
+                }
             }
         }
     }
@@ -60,11 +82,22 @@
     .dashboard {
         .container {
             .container_content {
-                margin-top: $base-margin * 4;
+                padding: 0 $base-margin * 2;
+            }
+        }
+    }
+}
+
+@include sm {
+    .dashboard {
+        .container {
+            .container_content {
+                padding: 0 $base-margin;
 
                 main {
                     .widget_wrapper {
-                        flex-wrap: wrap;
+                        grid-template-columns: repeat(1, minmax(0, 1fr));
+                        width: 230px;
                     }
                 }
             }

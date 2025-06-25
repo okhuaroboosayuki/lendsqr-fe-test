@@ -1,6 +1,7 @@
 .table_container {
+    min-width: 600px;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: scroll;
     margin-top: $base-margin * 2;
     box-shadow:
         2px 2px 4px lightgray,
@@ -14,149 +15,224 @@
     .table {
         width: 100%;
 
-        tr {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
+        thead {
+            tr {
+                th {
+                    padding: 10px 0;
+                    text-align: left;
+                    font-family: "Work Sans", sans-serif;
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: $secondary-color;
+                    white-space: nowrap;
 
-            th {
-                display: flex;
-                gap: 10px;
-                font-family: "Work Sans", sans-serif;
-                text-transform: uppercase;
-                font-size: 12px;
-                font-weight: 600;
-                color: $secondary-color;
+                    img {
+                        cursor: pointer;
+                        margin-left: 5px;
+                        vertical-align: middle;
+                    }
 
-                &.organization {
-                    width: 150px;
-                }
-
-                &.username {
-                    width: 160px;
-                }
-
-                &.email {
-                    width: 230px;
-                }
-
-                &.phone_num {
-                    width: 150px;
-                }
-
-                &.date {
-                    width: 210px;
-                }
-
-                &.status {
-                    justify-content: center;
-                }
-
-                img {
-                    cursor: pointer;
+                    &.organization {
+                        width: 15%;
+                    }
+                    &.username {
+                        width: 15%;
+                    }
+                    &.email {
+                        width: 20%;
+                    }
+                    &.phone_num {
+                        width: 15%;
+                    }
+                    &.date {
+                        width: 20%;
+                    }
+                    &.status {
+                        width: 10%;
+                    }
                 }
             }
         }
 
-        .table_main_data {
-            width: 100%;
-            border-bottom: 1px solid mix($bg-color, $primary-color, 82%);
-            display: flex;
-            align-items: center;
-            margin-top: $base-margin * 1.5;
-            position: relative;
+        tbody {
+            .table_main_data {
+                position: relative;
 
-            td {
-                display: flex;
-                width: 100%;
-                padding: 16px 10px 16px 0;
-                font-size: 14px;
-                color: $secondary-color;
-                text-transform: capitalize;
+                .lender {
+                    text-transform: capitalize;
+                }
 
-                div {
-                    padding: 10px 20px;
-                    margin-left: 3px;
+                td {
+                    padding: 16px 0;
+                    font-size: 14px;
+                    color: $secondary-color;
+                    border-bottom: 1px solid mix($bg-color, $primary-color, 82%);
+                    position: relative;
 
-                    &.name {
-                        padding: 0;
-                        width: 150px;
-                    }
-
-                    &.email {
-                        width: 220px;
-                        padding: 0;
-                    }
-
-                    &.phone {
-                        width: 100px;
-                        padding: 0;
-                    }
-
-                    &.date {
-                        width: 200px;
-                        padding: 0;
-                    }
-
-                    &.active_status {
-                        color: $active-color;
-                        background-color: mix($bg-color, $active-color, 80%);
-                        border-radius: 30%;
-                        text-align: center;
-                    }
-
-                    &.inactive_status {
+                    .username_link span {
                         color: $secondary-color;
-                        background-color: mix($bg-color, $secondary-color, 80%);
-                        border-radius: 30%;
-                        text-align: center;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
 
-                    &.pending_status {
-                        color: $pending-color;
-                        background-color: mix($bg-color, $pending-color, 80%);
-                        border-radius: 30%;
-                        text-align: center;
+                    &:nth-child(1) {
+                        // Organization
+                        width: 15%;
+                    }
+                    &:nth-child(2) {
+                        // Username
+                        width: 15%;
+                    }
+                    &:nth-child(3) {
+                        // Email
+                        width: 20%;
+                    }
+                    &:nth-child(4) {
+                        // Phone Number
+                        width: 15%;
+                    }
+                    &:nth-child(5) {
+                        // Date Joined
+                        width: 20%;
+                    }
+                    &:nth-child(6) {
+                        // Status
+                        width: 10%;
                     }
 
-                    &.blacklisted_status {
-                        color: $blacklisted-color;
-                        background-color: mix($bg-color, $blacklisted-color, 80%);
-                        border-radius: 30%;
-                        text-align: center;
+                    span {
+                        display: inline-block;
+                        padding: 10px 0;
+
+                        &.active {
+                            color: $active-color;
+                            background-color: mix(
+                                $bg-color,
+                                $active-color,
+                                80%
+                            );
+                            border-left: 0;
+                            border-radius: 100px;
+                            width: 100%;
+                            text-align: center;
+                            text-transform: capitalize;
+                        }
+
+                        &.inactive {
+                            text-transform: capitalize;
+                            color: $secondary-color;
+                            background-color: mix(
+                                $bg-color,
+                                $secondary-color,
+                                80%
+                            );
+                            border-radius: 100px;
+                            width: 100%;
+                            text-align: center;
+                        }
+
+                        &.pending {
+                            color: $pending-color;
+                            background-color: mix(
+                                $bg-color,
+                                $pending-color,
+                                80%
+                            );
+                            border-radius: 100px;
+                            width: 100%;
+                            text-align: center;
+                            text-transform: capitalize;
+                        }
+
+                        &.blacklisted {
+                            text-transform: capitalize;
+                            color: $blacklisted-color;
+                            background-color: mix(
+                                $bg-color,
+                                $blacklisted-color,
+                                80%
+                            );
+                            border-radius: 100px;
+                            width: 100%;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .user_options_icon {
+                    cursor: pointer;
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .options {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 20px;
+                    background-color: $bg-color;
+                    margin-top: $base-margin * 3.5;
+                    padding: 20px 50px 22px 21px;
+                    height: 130px;
+                    border-radius: 4px;
+                    z-index: 200;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+                    .option {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        cursor: pointer;
+                        text-transform: capitalize;
+                        position: relative;
+
+                        &:first-child span:hover {
+                            color: $primary-color;
+                            text-decoration: underline;
+                        }
+
+                        span {
+                            color: $secondary-color;
+                        }
                     }
                 }
             }
+        }
+    }
+}
 
-            img {
-                cursor: pointer;
+@include xl {
+    .table_container {
+        .table {
+            tbody {
+                .table_main_data {
+                    .user_options_icon {
+                        right: -1%;
+                    }
+                }
             }
+        }
+    }
+}
 
-            .options {
-                position: absolute;
-                top: 0;
-                right: 0;
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-                background-color: $bg-color;
-                margin-top: $base-margin * 3.5;
-                padding: 20px 50px 22px 21px;
-                height: 130px;
-                border-radius: 4px;
-                z-index: 200;
+@include md {
+    .table_container {
+        min-width: 100%;
 
-                .option {
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    gap: 8px;
-                    cursor: pointer;
-                    text-transform: capitalize;
-
-                    span {
-                        color: $secondary-color;
+        .table {
+            tbody {
+                .table_main_data {
+                    .user_options_icon {
+                        right: -2.5%;
                     }
                 }
             }

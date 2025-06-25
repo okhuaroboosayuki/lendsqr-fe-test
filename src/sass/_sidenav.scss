@@ -1,18 +1,10 @@
 .side_nav_container {
-    .mobile_menu {
-        display: none;
-    }
-
     .side_nav {
         @extend %flex-layout;
         flex-direction: column;
         gap: 7px;
         padding-bottom: $base-padding;
-        max-width: 283px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
+        width: 283px;
         height: 100%;
         background-color: $bg-color;
         box-shadow: $base-box-shadow;
@@ -32,6 +24,10 @@
             gap: 40px;
             padding: $base-padding * 2;
             margin-top: $base-margin * 5;
+
+            .side_nav_icon {
+                display: none;
+            }
 
             .side_nav-organisation,
             .side_nav-dashboard {
@@ -97,46 +93,119 @@
     }
 }
 
-@include xl {
+@include xxl {
     .side_nav_container {
-        .mobile_menu {
-            display: block;
-            position: absolute;
-            top: 78px;
-            left: 10px;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 24px;
-            padding: 0;
-            width: 27px;
-            z-index: 600;
-        }
-
-        .mobile_menu .bar {
-            background-color: $primary-color;
-            height: 4px;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .mobile_menu.open .bar:nth-child(1) {
-            transform: translateY(10px) rotate(45deg);
-        }
-
-        .mobile_menu.open .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile_menu.open .bar:nth-child(3) {
-            transform: translateY(-10px) rotate(-45deg);
-        }
         .side_nav {
-            display: none;
+            width: 250px;
 
-            &.open {
-                display: flex;
+            .side_nav_top {
+                padding: $base-padding * 2 $base-padding;
+            }
+
+            .side_nav-group-container {
+                .side_nav-group {
+                    .side_nav-group-title {
+                        padding-left: $base-padding;
+                    }
+
+                    ul {
+                        .side_nav-group-list-item {
+                            .side_nav-group-link {
+                                padding: 10px $base-padding;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include breakpoint(1024px) {
+    .side_nav_container {
+        .menu_closed {
+            width: 283px !important;
+            position: fixed;
+            background-color: $bg-color;
+            overflow: scroll;
+
+            .side_nav_top {
+                .side_nav-dashboard,
+                .side_nav-organisation {
+                    span {
+                        display: flex !important;
+                    }
+                }
+
+                .side_nav_icon {
+                    align-self: flex-end !important;
+
+                    img {
+                        rotate: 0deg !important;
+                        transition: rotate 0.3s ease-in-out;
+                    }
+                }
+            }
+
+            .side_nav-group-container {
+                .side_nav-group {
+                    h3 {
+                        display: inline-block !important;
+                    }
+
+                    ul {
+                        li {
+                            .side_nav-group-link {
+                                span {
+                                    display: flex !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .side_nav {
+            width: 100%;
+
+            .side_nav_top {
+                .side_nav-dashboard,
+                .side_nav-organisation {
+                    span {
+                        display: none;
+                    }
+                }
+
+                .side_nav_icon {
+                    display: block;
+                    margin-top: -12%;
+                    cursor: pointer;
+                    align-self: flex-start !important;
+
+                    img {
+                        rotate: 180deg;
+                        transition: rotate 0.3s ease-in-out;
+                    }
+                }
+            }
+
+            .side_nav-group-container {
+                .side_nav-group {
+                    h3 {
+                        display: none;
+                    }
+
+                    ul {
+                        li {
+                            .side_nav-group-link {
+                                span {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
