@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useGetUsers } from "./hooks/useGetUsers";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import Login from "./pages/Login";
+import Loaders from "./components/Loaders";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 
-function App() {
-  const [count, setCount] = useState(0)
+const DashboardLayout = lazy(() => import("./pages/DashboardLayout"));
+const Dashboard = lazy(() => import("./components/Dashboard"));
+const UserDetails = lazy(() => import("./components/UserDetails"));
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Login />,
+      ErrorBoundary: ErrorBoundary,
+    },
+    {
+      path: "/dashboard/users",
+      element: (
+        <ProtectedRoutes>
+          <Suspense fallback={<Loaders />}>
+            <DashboardLayout />
+          </Suspense>
+        </ProtectedRoutes>
+      ),
+      children: [
+        {
+          index: true,
+          element: (
+            <Suspense fallback={<Loaders />}>
+              <Dashboard />
+            </Suspense>
+          ),
+          loader: useGetUsers,
+          errorElement: <ErrorBoundary />,
+        },
+        {
+          path: "/dashboard/users/:userId",
+          element: (
+            <ProtectedRoutes>
+              <Suspense fallback={<Loaders />}>
+                <UserDetails />
+              </Suspense>
+            </ProtectedRoutes>
+          ),
+          loader: useGetUsers,
+          errorElement: <ErrorBoundary />,
+        },
+      ],
+    },
+  ]);
+  return <RouterProvider router={router} />;
+};
 
-export default App
+export default App;

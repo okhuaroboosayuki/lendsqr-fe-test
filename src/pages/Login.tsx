@@ -24,7 +24,7 @@ const Login = () => {
   const onSubmit = async (data: FormData) => {
     const success = await signIn(data.email, data.password);
 
-    if (success) navigate("/dashboard");
+    if (success) navigate("/dashboard/users");
   };
 
   const handleVisibility = () => {
