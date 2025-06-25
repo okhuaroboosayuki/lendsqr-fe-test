@@ -34,7 +34,7 @@ const Header = () => {
           <img src={avatar} alt="User's image" loading="lazy" />
 
           <div className="user_name">
-            <a href="#">bola</a>
+            <a href="#">Adedeji</a>
             <img src={dropDownIcon} alt="dropdown icon" />
           </div>
         </div>

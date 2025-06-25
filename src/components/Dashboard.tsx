@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
 import { usePagination } from "@mantine/hooks";
 
 import type { User } from "../types/types";
@@ -14,14 +13,16 @@ import Table from "./Table";
 import Pagination from "./Pagination";
 
 const Dashboard = () => {
-  const users = useLoaderData();
+  // get and parsed stored users from localStorage
+  const raw = localStorage.getItem("users");
+  const users: User[] = raw ? JSON.parse(raw) : [];
 
   const [startIndex, setStartIndex] = useState(1);
   const [endIndex, setEndIndex] = useState(10);
-  const [currentData, setCurrentData] = useState<User[]>(users.slice(0, endIndex));
+  const [currentData, setCurrentData] = useState<User[]>(users?.slice(0, endIndex));
 
   const itemsPerPage = 10;
-  const total = Math.ceil(users.length / itemsPerPage);
+  const total = Math.ceil(users?.length / itemsPerPage);
 
   const pagination = usePagination({
     total,

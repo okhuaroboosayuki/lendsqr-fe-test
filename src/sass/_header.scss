@@ -39,6 +39,7 @@
                 height: 20px;
                 outline: none;
                 border: none;
+                background-color: transparent;
 
                 &::-webkit-search-cancel-button {
                     -webkit-appearance: none;
@@ -226,14 +227,18 @@
 @include sm {
     .dashboard_header {
         padding: $base-padding $base-padding;
+        gap: 1rem;
 
         .header_left {
+            gap: 1.5rem;
+
             .logo_1 {
                 display: none;
             }
 
             .search_wrapper {
                 width: 270px;
+                margin-left: 0;
             }
         }
 
@@ -247,7 +252,7 @@
     }
 }
 
-@include breakpoint(375px) {
+@include breakpoint(460px) {
     .dashboard_header {
         .header_left {
             .search_wrapper {

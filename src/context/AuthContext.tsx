@@ -38,6 +38,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
     if (error) console.error("Error signing out:", error.message);
 
     localStorage.removeItem("isAuthenticated");
+    localStorage.removeItem("users");
     setSession(null);
     setId(null);
   };

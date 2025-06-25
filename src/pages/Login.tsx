@@ -68,7 +68,7 @@ const Login = () => {
 
               <Link to={"#"}>Forgot PASSWORD?</Link>
 
-              <button className="submit_btn" type="submit" disabled={isSubmitting}>
+              <button className={`submit_btn ${isSubmitting && "disabled_btn"}`} type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "loading..." : "log in"}
               </button>
             </form>

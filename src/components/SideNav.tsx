@@ -26,7 +26,6 @@ import badge from "/assets/icons/badge-percent.svg";
 import clipboard from "/assets/icons/clipboard-list.svg";
 import logOut from "/assets/icons/sign-out.svg";
 import doubleArrow from "/assets/icons/double-left-arrow.svg";
-// import { useEffect } from "react";
 
 export default function SideNav({ isSideNavOpen, setIsSideNavOpen }: SideNavProps) {
   const navigate = useNavigate();
@@ -35,24 +34,6 @@ export default function SideNav({ isSideNavOpen, setIsSideNavOpen }: SideNavProp
   const toggleMenu = () => {
     setIsSideNavOpen(!isSideNavOpen);
   };
-
-  // useEffect(() => {
-  //   // Close the side nav when the window is resized to a smaller width
-  //   const handleResize = () => {
-  //     if (window.innerWidth < 768) {
-  //       setIsSideNavOpen(!isSideNavOpen);
-  //     } else {
-  //       setIsSideNavOpen(!isSideNavOpen);
-  //     }
-  //   };
-
-  //   window.addEventListener("resize", handleResize);
-
-  //   // Cleanup the event listener on component unmount
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, [isSideNavOpen, setIsSideNavOpen]);
 
   const handleSignOut = async () => {
     await signOut();

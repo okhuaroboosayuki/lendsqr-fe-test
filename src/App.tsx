@@ -46,7 +46,6 @@ const App = () => {
               </Suspense>
             </ProtectedRoutes>
           ),
-          loader: useGetUsers,
           errorElement: <ErrorBoundary />,
         },
       ],
